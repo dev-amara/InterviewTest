@@ -5,7 +5,11 @@ import 'material-icons/iconfont/material-icons.css';
 
 import axios from 'axios';
 
-const base = axios.create({baseURL: 'http://localhost:8000'});
+const base = axios.create({
+    baseURL: 'http://localhost:8000',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    }});
 
 Vue.prototype.$http = base;
 

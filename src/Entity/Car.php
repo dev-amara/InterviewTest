@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
-use Symfony\Component\Validator\Annotations\Constraint as Asset;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CarRepository")
@@ -22,49 +22,56 @@ class Car implements EntityInterface
     /**
      * @ORM\Column(type="boolean", nullable=true)
      * @Serializer\Groups({"list"})
+     * @Assert\NotBlank
      */
     private $isAllocated = false;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @Serializer\Groups({"list"})
-     * @Assert\
+     * @Assert\NotBlank
      */
     private $parkingPlaceNb;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Serializer\Groups({"list"})
+     * @Assert\NotBlank
      */
     private $carType;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      *  @Serializer\Groups({"list"})
+     * @Assert\NotBlank
      */
     private $registration;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     *  @Serializer\Groups({"list"})
+     * @Serializer\Groups({"list"})
+     * @Assert\NotBlank
      */
     private $type;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     *  @Serializer\Groups({"list"})
+     * @Serializer\Groups({"list"})
+     * @Assert\NotBlank
      */
     private $model;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Serializer\Groups({"list"})
+     * @Assert\NotBlank
      */
     private $power;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Serializer\Groups({"list"})
+     * @Assert\NotBlank
      */
     private $brand;
 

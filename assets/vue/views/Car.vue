@@ -129,7 +129,7 @@
         },
 
         mounted() {
-            axios.get("http://localhost:8001/api/v1/cars").then(response => {
+            axios.get("/api/v1/cars").then(response => {
                 this.data = response.data.data;
             });
         },
@@ -171,21 +171,21 @@
             },
             onActionClicked(action, data) {
                 if('delete-item' === action) {
-                    axios.delete("http://localhost:8001/api/v1/cars/"+ data.id)
-                    axios.get("http://localhost:8001/api/v1/cars").then(response => {
+                    axios.delete("/api/v1/cars/"+ data.id)
+                    axios.get("/api/v1/cars").then(response => {
                         this.data = response.data.data;
                     });
                     //this.data = this.dataManager().data.splice(index, 1)
                 }
             },
             save(data) {
-                axios.post("http://localhost:8001/api/v1/cars", data, {
+                axios.post("/api/v1/cars", data, {
                         headers: {
                             'Content-Type': 'application/json',
                         }
                     }
                 );
-                axios.get("http://localhost:8001/api/v1/cars").then(response => {
+                axios.get("/api/v1/cars").then(response => {
                     this.data = response.data.data;
                 });
             }
